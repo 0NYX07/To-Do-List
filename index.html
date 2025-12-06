@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><i class="fas fa-tasks"></i> Task Manager</h1>
+      <div class="header-controls">
+        <button id="themeToggle" class="theme-toggle">
+          <i class="fas fa-moon"></i> Night Mode
+        </button>
+        <p id="dateDisplay"></p>
+      </div>
+    </div>
+
+    <div class="input-section">
+      <div class="input-group">
+        <input id="taskInput" type="text" placeholder="Add a new task..." />
+        <select id="prioritySelect">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+        <button id="addBtn" class="btn-primary">
+          <i class="fas fa-plus"></i> Add
+        </button>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="tasks-section">
+        <div class="section-header">
+          <h2>Your Tasks</h2>
+          <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="high">High</button>
+            <button class="filter-btn" data-filter="medium">Medium</button>
+            <button class="filter-btn" data-filter="low">Low</button>
+          </div>
+        </div>
+        
+        <ul id="taskList" class="task-list"></ul>
+        
+        <div id="emptyState" class="empty-state">
+          <i class="fas fa-clipboard-list"></i>
+          <p>No tasks yet. Add your first task!</p>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="stats-card">
+          <h3>Summary</h3>
+          <div class="stats">
+            <div class="stat-item">
+              <i class="fas fa-list"></i>
+              <div>
+                <span class="stat-value" id="totalTasks">0</span>
+                <span class="stat-label">Total</span>
+              </div>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <span class="stat-value" id="completedTasks">0</span>
+                <span class="stat-label">Completed</span>
+              </div>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-clock"></i>
+              <div>
+                <span class="stat-value" id="pendingTasks">0</span>
+                <span class="stat-label">Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <h3>Quick Actions</h3>
+          <button id="clearCompleted" class="btn-secondary">
+            <i class="fas fa-check-double"></i> Clear Completed
+          </button>
+          <button id="clearAll" class="btn-danger">
+            <i class="fas fa-trash"></i> Clear All
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="notification" class="notification">
+    <span id="notificationText"></span>
+  </div>
+
+  <audio id="dingSound" src="https://assets.mixkit.co/active_storage/sfx/286/286-preview.mp3" preload="auto"></audio>
+  <audio id="addSound" src="https://assets.mixkit.co/active_storage/sfx/257/257-preview.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
